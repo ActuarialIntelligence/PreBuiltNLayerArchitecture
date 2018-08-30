@@ -1,0 +1,6 @@
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Domain\bin\Debug\AML.Domain.dll
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Domain\bin\Debug\AML.Domain.pdb
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Domain\obj\Debug\AML.Domain.csprojResolveAssemblyReference.cache
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Domain\obj\Debug\AML.Domain.csproj.CoreCompileInputs.cache
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Domain\obj\Debug\AML.Domain.dll
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Domain\obj\Debug\AML.Domain.pdb

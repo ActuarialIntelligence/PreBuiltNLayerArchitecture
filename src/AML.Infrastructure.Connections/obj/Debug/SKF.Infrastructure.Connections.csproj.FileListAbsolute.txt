@@ -1,0 +1,8 @@
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Connections\bin\Debug\AML.Infrastructure.Connections.dll
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Connections\bin\Debug\AML.Infrastructure.Connections.pdb
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Connections\bin\Debug\FileHelpers.dll
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Connections\bin\Debug\FileHelpers.xml
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Connections\obj\Debug\SKF.Infrastructure.Connections.csprojResolveAssemblyReference.cache
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Connections\obj\Debug\SKF.Infrastructure.Connections.csproj.CoreCompileInputs.cache
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Connections\obj\Debug\AML.Infrastructure.Connections.dll
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Connections\obj\Debug\AML.Infrastructure.Connections.pdb

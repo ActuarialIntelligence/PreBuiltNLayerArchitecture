@@ -1,0 +1,6 @@
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Data.EF\bin\Debug\AML.Infrastructure.Data.EF.dll
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Data.EF\bin\Debug\AML.Infrastructure.Data.EF.pdb
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Data.EF\obj\Debug\AML.Infrastructure.Data.EF.csprojResolveAssemblyReference.cache
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Data.EF\obj\Debug\AML.Infrastructure.Data.EF.csproj.CoreCompileInputs.cache
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Data.EF\obj\Debug\AML.Infrastructure.Data.EF.dll
+C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Infrastructure.Data.EF\obj\Debug\AML.Infrastructure.Data.EF.pdb

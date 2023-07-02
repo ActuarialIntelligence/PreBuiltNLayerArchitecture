@@ -8,3 +8,14 @@ C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Serialization\obj\Debu
 C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Serialization\obj\Debug\SKF.Serialization.csproj.CoreCompileInputs.cache
 C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Serialization\obj\Debug\AML.Serialization.dll
 C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Serialization\obj\Debug\AML.Serialization.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\bin\Debug\AML.Serialization.dll
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\bin\Debug\AML.Serialization.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\bin\Debug\AML.Domain.dll
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\bin\Debug\AML.Infrastructure.Readers.dll
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\bin\Debug\AML.Domain.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\bin\Debug\AML.Infrastructure.Readers.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\obj\Debug\SKF.Serialization.csproj.AssemblyReference.cache
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\obj\Debug\SKF.Serialization.csproj.CoreCompileInputs.cache
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\obj\Debug\SKF.Serialization.csproj.CopyComplete
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\obj\Debug\AML.Serialization.dll
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\obj\Debug\AML.Serialization.pdb

@@ -4,3 +4,9 @@ C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Domain\obj\Debug\SKF.D
 C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Domain\obj\Debug\SKF.Domain.csproj.CoreCompileInputs.cache
 C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Domain\obj\Debug\AML.Domain.dll
 C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.Domain\obj\Debug\AML.Domain.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Domain\bin\Debug\AML.Domain.dll
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Domain\bin\Debug\AML.Domain.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Domain\obj\Debug\SKF.Domain.csproj.AssemblyReference.cache
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Domain\obj\Debug\SKF.Domain.csproj.CoreCompileInputs.cache
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Domain\obj\Debug\AML.Domain.dll
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Domain\obj\Debug\AML.Domain.pdb

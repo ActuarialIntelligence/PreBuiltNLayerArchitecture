@@ -3,3 +3,9 @@ C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\SKF.Infrastructure.Validat
 C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\SKF.Infrastructure.Validation\obj\Debug\SKF.Infrastructure.Validation.csproj.CoreCompileInputs.cache
 C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\SKF.Infrastructure.Validation\obj\Debug\SKF.Infrastructure.Validation.dll
 C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\SKF.Infrastructure.Validation\obj\Debug\SKF.Infrastructure.Validation.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\SKF.Infrastructure.Validation\bin\Debug\SKF.Infrastructure.Validation.dll
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\SKF.Infrastructure.Validation\bin\Debug\SKF.Infrastructure.Validation.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\SKF.Infrastructure.Validation\obj\Debug\SKF.Infrastructure.Validation.csproj.AssemblyReference.cache
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\SKF.Infrastructure.Validation\obj\Debug\SKF.Infrastructure.Validation.csproj.CoreCompileInputs.cache
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\SKF.Infrastructure.Validation\obj\Debug\SKF.Infrastructure.Validation.dll
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\SKF.Infrastructure.Validation\obj\Debug\SKF.Infrastructure.Validation.pdb

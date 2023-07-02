@@ -1,11 +1,7 @@
 ﻿using SKF.Domain;
 using SKF.Infrastructure.Readers.Interfaces;
 using SKF.Serialization.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SKF.Serialization
 {

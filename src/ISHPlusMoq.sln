@@ -29,8 +29,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceLayer", "ServiceLaye
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Connections", "Connections", "{A78B9E92-F07D-4FCC-BB14-1D4197E92F16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISHFromModelTest", "ISHFromModelTest\ISHFromModelTest.csproj", "{7A757171-F526-4320-84B1-0EEA873563F3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,10 +75,6 @@ Global
 		{1999271D-BDE4-47B1-B9CF-E0A5A15BA387}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1999271D-BDE4-47B1-B9CF-E0A5A15BA387}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1999271D-BDE4-47B1-B9CF-E0A5A15BA387}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A757171-F526-4320-84B1-0EEA873563F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A757171-F526-4320-84B1-0EEA873563F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A757171-F526-4320-84B1-0EEA873563F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A757171-F526-4320-84B1-0EEA873563F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,7 +88,6 @@ Global
 		{2016CE79-0C99-45D8-8F19-2BDB35806118} = {A78B9E92-F07D-4FCC-BB14-1D4197E92F16}
 		{1999271D-BDE4-47B1-B9CF-E0A5A15BA387} = {F15E4B6D-1F81-4D20-8AC7-7A0A4BDA7CEE}
 		{A78B9E92-F07D-4FCC-BB14-1D4197E92F16} = {F15E4B6D-1F81-4D20-8AC7-7A0A4BDA7CEE}
-		{7A757171-F526-4320-84B1-0EEA873563F3} = {E49E2449-569D-49C6-8273-F894D1F49478}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {487DF2E8-FF3B-475F-8B7A-9293A1327888}

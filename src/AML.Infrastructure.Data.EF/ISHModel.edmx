@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ISHmockModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DIAGNOSIS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="ISSUE_DATE" Type="date" />
+          <Property Name="TREATMENT" Type="varchar" MaxLength="30" />
+          <Property Name="REMARKS" Type="varchar" MaxLength="20" />
+          <Property Name="NURSE_ID" Type="int" />
+          <Property Name="DOC_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="DOCTOR">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="DNAME" Type="varchar" MaxLength="30" />
+          <Property Name="GENDER" Type="char" MaxLength="1" />
+          <Property Name="QUALIFICATION" Type="varchar" MaxLength="30" />
+          <Property Name="JOB_SPECIFICATION" Type="varchar" MaxLength="30" />
+          <Property Name="HOSP_NAME" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="EXAMINE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="DOC_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="HOSPITAL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="30" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MEDICINE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="MED_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PRICE" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="EXP_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="MEDICINE_COUNTRY">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="MAN_COUNTRY" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="MAN_COUNTRY" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NURSE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="30" />
+          <Property Name="GENDER" Type="char" MaxLength="1" />
+          <Property Name="DOC_ID" Type="int" />
+          <Property Name="HOSP_NAME" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="PATIENT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="FNAME" Type="varchar" MaxLength="30" />
+          <Property Name="LNAME" Type="varchar" MaxLength="30" />
+          <Property Name="AGE" Type="int" />
+          <Property Name="GENDER" Type="char" MaxLength="1" />
+          <Property Name="NURSE_ID" Type="int" />
+          <Property Name="REC_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="PURCHASE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="REG_NO" Type="int" />
+        </EntityType>
+        <EntityType Name="RECEPTION">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="TEL_NO" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="30" />
+          <Property Name="HOSP_NAME" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="VISIT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="VISIT_DATE" Type="date" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="HOSP_NAME" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityContainer Name="ISHmockModelStoreContainer">
+          <EntitySet Name="DIAGNOSIS" EntityType="Self.DIAGNOSIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOCTOR" EntityType="Self.DOCTOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EXAMINE" EntityType="Self.EXAMINE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOSPITAL" EntityType="Self.HOSPITAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MEDICINE" EntityType="Self.MEDICINE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MEDICINE_COUNTRY" EntityType="Self.MEDICINE_COUNTRY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NURSE" EntityType="Self.NURSE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PATIENT" EntityType="Self.PATIENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PURCHASE" EntityType="Self.PURCHASE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECEPTION" EntityType="Self.RECEPTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VISIT" EntityType="Self.VISIT" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ISHmockModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DIAGNOSI">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="ISSUE_DATE" Type="DateTime" Precision="0" />
+          <Property Name="TREATMENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="REMARKS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NURSE_ID" Type="Int32" />
+          <Property Name="DOC_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DOCTOR">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="DNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="QUALIFICATION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="JOB_SPECIFICATION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HOSP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EXAMINE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="DOC_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HOSPITAL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MEDICINE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="MED_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRICE" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="EXP_DATE" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="MEDICINE_COUNTRY">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="MAN_COUNTRY" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="MAN_COUNTRY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NURSE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DOC_ID" Type="Int32" />
+          <Property Name="HOSP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PATIENT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="FNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AGE" Type="Int32" />
+          <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NURSE_ID" Type="Int32" />
+          <Property Name="REC_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PURCHASE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="REG_NO" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RECEPTION">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="TEL_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HOSP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VISIT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="VISIT_DATE" Type="DateTime" Precision="0" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="HOSP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ISHmockEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DIAGNOSIS" EntityType="Self.DIAGNOSI" />
+          <EntitySet Name="DOCTORs" EntityType="Self.DOCTOR" />
+          <EntitySet Name="EXAMINEs" EntityType="Self.EXAMINE" />
+          <EntitySet Name="HOSPITALs" EntityType="Self.HOSPITAL" />
+          <EntitySet Name="MEDICINEs" EntityType="Self.MEDICINE" />
+          <EntitySet Name="MEDICINE_COUNTRY" EntityType="Self.MEDICINE_COUNTRY" />
+          <EntitySet Name="NURSEs" EntityType="Self.NURSE" />
+          <EntitySet Name="PATIENTs" EntityType="Self.PATIENT" />
+          <EntitySet Name="PURCHASEs" EntityType="Self.PURCHASE" />
+          <EntitySet Name="RECEPTIONs" EntityType="Self.RECEPTION" />
+          <EntitySet Name="VISITs" EntityType="Self.VISIT" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ISHmockModelStoreContainer" CdmEntityContainer="ISHmockEntities">
+          <EntitySetMapping Name="DIAGNOSIS">
+            <EntityTypeMapping TypeName="ISHmockModel.DIAGNOSI">
+              <MappingFragment StoreEntitySet="DIAGNOSIS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ISSUE_DATE" ColumnName="ISSUE_DATE" />
+                <ScalarProperty Name="TREATMENT" ColumnName="TREATMENT" />
+                <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+                <ScalarProperty Name="NURSE_ID" ColumnName="NURSE_ID" />
+                <ScalarProperty Name="DOC_ID" ColumnName="DOC_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOCTORs">
+            <EntityTypeMapping TypeName="ISHmockModel.DOCTOR">
+              <MappingFragment StoreEntitySet="DOCTOR">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DNAME" ColumnName="DNAME" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="QUALIFICATION" ColumnName="QUALIFICATION" />
+                <ScalarProperty Name="JOB_SPECIFICATION" ColumnName="JOB_SPECIFICATION" />
+                <ScalarProperty Name="HOSP_NAME" ColumnName="HOSP_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EXAMINEs">
+            <EntityTypeMapping TypeName="ISHmockModel.EXAMINE">
+              <MappingFragment StoreEntitySet="EXAMINE">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DOC_ID" ColumnName="DOC_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOSPITALs">
+            <EntityTypeMapping TypeName="ISHmockModel.HOSPITAL">
+              <MappingFragment StoreEntitySet="HOSPITAL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDICINEs">
+            <EntityTypeMapping TypeName="ISHmockModel.MEDICINE">
+              <MappingFragment StoreEntitySet="MEDICINE">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MED_NAME" ColumnName="MED_NAME" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="EXP_DATE" ColumnName="EXP_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEDICINE_COUNTRY">
+            <EntityTypeMapping TypeName="ISHmockModel.MEDICINE_COUNTRY">
+              <MappingFragment StoreEntitySet="MEDICINE_COUNTRY">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MAN_COUNTRY" ColumnName="MAN_COUNTRY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NURSEs">
+            <EntityTypeMapping TypeName="ISHmockModel.NURSE">
+              <MappingFragment StoreEntitySet="NURSE">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="DOC_ID" ColumnName="DOC_ID" />
+                <ScalarProperty Name="HOSP_NAME" ColumnName="HOSP_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PATIENTs">
+            <EntityTypeMapping TypeName="ISHmockModel.PATIENT">
+              <MappingFragment StoreEntitySet="PATIENT">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+                <ScalarProperty Name="LNAME" ColumnName="LNAME" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="NURSE_ID" ColumnName="NURSE_ID" />
+                <ScalarProperty Name="REC_ID" ColumnName="REC_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PURCHASEs">
+            <EntityTypeMapping TypeName="ISHmockModel.PURCHASE">
+              <MappingFragment StoreEntitySet="PURCHASE">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="REG_NO" ColumnName="REG_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECEPTIONs">
+            <EntityTypeMapping TypeName="ISHmockModel.RECEPTION">
+              <MappingFragment StoreEntitySet="RECEPTION">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="HOSP_NAME" ColumnName="HOSP_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VISITs">
+            <EntityTypeMapping TypeName="ISHmockModel.VISIT">
+              <MappingFragment StoreEntitySet="VISIT">
+                <ScalarProperty Name="VISIT_DATE" ColumnName="VISIT_DATE" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="HOSP_NAME" ColumnName="HOSP_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

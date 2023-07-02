@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceLayer", "ServiceLaye
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Connections", "Connections", "{F5D93F9C-6692-4591-8F16-0413E3274042}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISHPlusTest", "ISHPlusTest\ISHPlusTest.csproj", "{B5DF10A6-85B9-41DB-824B-7EF2AE5A60EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{1999271D-BDE4-47B1-B9CF-E0A5A15BA387}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1999271D-BDE4-47B1-B9CF-E0A5A15BA387}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1999271D-BDE4-47B1-B9CF-E0A5A15BA387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5DF10A6-85B9-41DB-824B-7EF2AE5A60EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5DF10A6-85B9-41DB-824B-7EF2AE5A60EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5DF10A6-85B9-41DB-824B-7EF2AE5A60EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5DF10A6-85B9-41DB-824B-7EF2AE5A60EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

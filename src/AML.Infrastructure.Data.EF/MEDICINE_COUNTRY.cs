@@ -14,9 +14,7 @@ namespace AML.Infrastructure.Data.EF
     
     public partial class MEDICINE_COUNTRY
     {
-        public int REG_NO { get; set; }
+        public int id { get; set; }
         public string MAN_COUNTRY { get; set; }
-    
-        public virtual MEDICINE MEDICINE { get; set; }
     }
 }

@@ -19,3 +19,5 @@ C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\obj\
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\obj\Debug\SKF.Serialization.csproj.CopyComplete
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\obj\Debug\AML.Serialization.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\obj\Debug\AML.Serialization.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\bin\Debug\AML.Domain.dll.config
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Serialization\bin\Debug\AML.Infrastructure.Readers.dll.config

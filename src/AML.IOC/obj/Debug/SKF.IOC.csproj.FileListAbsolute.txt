@@ -78,3 +78,9 @@ C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\obj\Debug\SKF.
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\obj\Debug\SKF.IOC.csproj.CopyComplete
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\obj\Debug\AML.IOC.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\obj\Debug\AML.IOC.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Domain.dll.config
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Infrastructure.Connections.dll.config
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.infrastructure.Data.dll.config
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Infrastructure.Readers.dll.config
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Infrastructure.Writers.dll.config
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Serialization.dll.config

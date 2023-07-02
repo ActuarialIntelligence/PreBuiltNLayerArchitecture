@@ -27,3 +27,5 @@ C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Rea
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Readers\obj\Debug\SKF.Infrastructure.Readers.csproj.CopyComplete
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Readers\obj\Debug\AML.Infrastructure.Readers.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Readers\obj\Debug\AML.Infrastructure.Readers.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Readers\bin\Debug\AML.Domain.dll.config
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Readers\bin\Debug\AML.infrastructure.Data.dll.config

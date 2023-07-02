@@ -14,18 +14,9 @@ namespace AML.Infrastructure.Data.EF
     
     public partial class RECEPTION
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RECEPTION()
-        {
-            this.PATIENTs = new HashSet<PATIENT>();
-        }
-    
-        public int REC_ID { get; set; }
+        public int id { get; set; }
         public string TEL_NO { get; set; }
         public string EMAIL { get; set; }
         public string HOSP_NAME { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PATIENT> PATIENTs { get; set; }
     }
 }

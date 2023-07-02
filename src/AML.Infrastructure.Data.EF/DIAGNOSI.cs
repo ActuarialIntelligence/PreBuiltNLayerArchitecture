@@ -11,10 +11,9 @@ namespace AML.Infrastructure.Data.EF
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class DIAGNOSI
     {
-       
         public int id { get; set; }
         public Nullable<System.DateTime> ISSUE_DATE { get; set; }
         public string TREATMENT { get; set; }

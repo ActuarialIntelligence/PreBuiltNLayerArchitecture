@@ -17,7 +17,7 @@ namespace AML.Infrastructure.Data.EF
         public int id { get; set; }
         public string FNAME { get; set; }
         public string LNAME { get; set; }
-        public Nullable<int> AGE { get; set; }
+        public int AGE { get; set; }
         public string GENDER { get; set; }
         public Nullable<int> NURSE_ID { get; set; }
         public Nullable<int> REC_ID { get; set; }

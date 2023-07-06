@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SKF.infrastructure.Data
 {
-    public class Class1
+    public class BillingModel
     {
     }
 }

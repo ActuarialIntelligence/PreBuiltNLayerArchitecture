@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace SKF.Infrastructure.Readers
 {
+    /// <summary>
+    /// Testing Excel connections in this class
+    /// </summary>
     public class DJExcelFileReader: IDataReader<IList<DJListRow>>
     {
         public DJExcelFileReader()
@@ -27,7 +30,7 @@ namespace SKF.Infrastructure.Readers
             var worksheetName = ConfigurationManager.AppSettings["DJListWorksheetName"];
 
 
-            string strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + sourceFile + ";Extended Properties=Excel 12.0;"; // The connection string should be populated via another domain object that makes use of config manager.
+            string strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + sourceFile + ";Extended Properties=Excel 12.0;"; // Note to self: connection string should be populated via another domain object that makes use of config manager.
 
             var conn = new OleDbConnection(strConn);
             conn.Open();

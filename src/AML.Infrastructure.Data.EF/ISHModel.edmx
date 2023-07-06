@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ISHmockModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Billing">
+          <Key>
+            <PropertyRef Name="BillingID" />
+          </Key>
+          <Property Name="BillingID" Type="int" Nullable="false" />
+          <Property Name="AppointmentID" Type="int" />
+          <Property Name="ServiceID" Type="int" />
+          <Property Name="AmountPaid" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="BillingDate" Type="datetime" />
+          <Property Name="ClaimID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="DIAGNOSIS">
           <Key>
             <PropertyRef Name="id" />
@@ -13,19 +24,79 @@
           <Property Name="ISSUE_DATE" Type="date" />
           <Property Name="TREATMENT" Type="varchar" MaxLength="30" />
           <Property Name="REMARKS" Type="varchar" MaxLength="20" />
-          <Property Name="NURSE_ID" Type="int" />
-          <Property Name="DOC_ID" Type="int" />
+          <Property Name="NURSE_ID" Type="int" Nullable="false" />
+          <Property Name="DOC_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ISHmock.dbo.DialysisPrescriptions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DialysisPrescriptions">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="PrescriptionTypeId" />
+            <PropertyRef Name="Haemodialysis" />
+            <PropertyRef Name="Haemodialfiltration" />
+            <PropertyRef Name="DialyserLevelIds" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PrescriptionTypeId" Type="int" Nullable="false" />
+          <Property Name="Haemodialysis" Type="bit" Nullable="false" />
+          <Property Name="Haemodialfiltration" Type="bit" Nullable="false" />
+          <Property Name="DialyserLevelIds" Type="int" Nullable="false" />
+          <Property Name="Frequency" Type="int" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="UnfractionatedHeparin" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="LowMolecularWeightHeparin" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="Other" Type="nvarchar(max)" />
+          <Property Name="DialysisAccessOptionId" Type="bigint" />
+          <Property Name="NeedleSize" Type="nvarchar(max)" />
+          <Property Name="PumpSpeed" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="AcidConcentrate" Type="nvarchar(max)" />
+          <Property Name="DialysateFlow" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="DialysateTemparature" Type="decimal" Precision="7" Scale="1" />
+          <Property Name="GoalKtv" Type="decimal" Precision="7" Scale="1" />
+          <Property Name="DryWeight" Type="decimal" Precision="7" Scale="1" />
+          <Property Name="Ultrafiltration" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="RepeatScript" Type="int" />
+          <Property Name="Sodium" Type="bit" />
+          <Property Name="UFProfile" Type="bit" />
+          <Property Name="More" Type="bit" />
+          <Property Name="MoreText" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="varchar(max)" />
+          <Property Name="Finalised" Type="bit" />
+          <Property Name="DocumentId" Type="bigint" />
+          <Property Name="DocumentKey" Type="varchar" MaxLength="50" />
+          <Property Name="VerificationCode" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime2" Precision="7" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="StatusId" Type="int" />
         </EntityType>
         <EntityType Name="DOCTOR">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DNAME" Type="varchar" MaxLength="30" />
-          <Property Name="GENDER" Type="char" MaxLength="1" />
-          <Property Name="QUALIFICATION" Type="varchar" MaxLength="30" />
-          <Property Name="JOB_SPECIFICATION" Type="varchar" MaxLength="30" />
-          <Property Name="HOSP_NAME" Type="varchar" MaxLength="30" />
+          <Property Name="DNAME" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="GENDER" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="QUALIFICATIONID" Type="int" Nullable="false" />
+          <Property Name="SpecialistTypeID" Type="int" Nullable="false" />
+          <Property Name="HOSP_NAME" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ElectronicClaims">
+          <Key>
+            <PropertyRef Name="claim_id" />
+          </Key>
+          <Property Name="claim_id" Type="int" Nullable="false" />
+          <Property Name="patient_id" Type="int" />
+          <Property Name="provider_id" Type="int" />
+          <Property Name="claim_date" Type="date" />
+          <Property Name="claim_amount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="diagnosis_code" Type="varchar" MaxLength="10" />
+          <Property Name="procedure_code" Type="varchar" MaxLength="10" />
+          <Property Name="status" Type="varchar" MaxLength="20" />
+          <Property Name="submitted_date" Type="date" />
+          <Property Name="adjudicated_date" Type="date" />
+          <Property Name="payment_amount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="payment_date" Type="date" />
         </EntityType>
         <EntityType Name="EXAMINE">
           <Key>
@@ -58,6 +129,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MAN_COUNTRY" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MedicineId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="NURSE">
           <Key>
@@ -66,7 +138,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="varchar" MaxLength="30" />
           <Property Name="GENDER" Type="char" MaxLength="1" />
-          <Property Name="DOC_ID" Type="int" />
+          <Property Name="DOC_ID" Type="int" Nullable="false" />
           <Property Name="HOSP_NAME" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="PATIENT">
@@ -81,12 +153,26 @@
           <Property Name="NURSE_ID" Type="int" />
           <Property Name="REC_ID" Type="int" />
         </EntityType>
+        <EntityType Name="PrescriptionTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="PrescriptionType" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="PURCHASE">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="REG_NO" Type="int" />
+        </EntityType>
+        <EntityType Name="Qualification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="RECEPTION">
           <Key>
@@ -96,6 +182,37 @@
           <Property Name="TEL_NO" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="EMAIL" Type="varchar" MaxLength="30" />
           <Property Name="HOSP_NAME" Type="varchar" MaxLength="30" />
+          <Property Name="HospitalId" Type="int" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="int" Nullable="false" />
+          <Property Name="ServiceName" Type="varchar" MaxLength="100" />
+          <Property Name="Charge" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ISHmock.dbo.Specialization' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Specialization">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="PrescriptionTypeId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrescriptionTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="VISIT">
           <Key>
@@ -104,19 +221,213 @@
           <Property Name="VISIT_DATE" Type="date" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HOSP_NAME" Type="varchar" MaxLength="30" />
+          <Property Name="HospitalId" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_DIAGNOSIS_NURSE">
+          <End Role="NURSE" Type="Self.NURSE" Multiplicity="1" />
+          <End Role="DIAGNOSIS" Type="Self.DIAGNOSIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NURSE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DIAGNOSIS">
+              <PropertyRef Name="NURSE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DialysisPrescriptions_PrescriptionTypes">
+          <End Role="PrescriptionTypes" Type="Self.PrescriptionTypes" Multiplicity="1" />
+          <End Role="DialysisPrescriptions" Type="Self.DialysisPrescriptions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrescriptionTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DialysisPrescriptions">
+              <PropertyRef Name="PrescriptionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXAMINE_DOCTOR">
+          <End Role="DOCTOR" Type="Self.DOCTOR" Multiplicity="0..1" />
+          <End Role="EXAMINE" Type="Self.EXAMINE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCTOR">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EXAMINE">
+              <PropertyRef Name="DOC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MEDICINE_COUNTRY_MEDICINE">
+          <End Role="MEDICINE" Type="Self.MEDICINE" Multiplicity="1" />
+          <End Role="MEDICINE_COUNTRY" Type="Self.MEDICINE_COUNTRY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICINE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MEDICINE_COUNTRY">
+              <PropertyRef Name="MedicineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NURSE_DOCTOR">
+          <End Role="DOCTOR" Type="Self.DOCTOR" Multiplicity="1" />
+          <End Role="NURSE" Type="Self.NURSE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCTOR">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="NURSE">
+              <PropertyRef Name="DOC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECEPTION_HOSPITAL">
+          <End Role="HOSPITAL" Type="Self.HOSPITAL" Multiplicity="0..1" />
+          <End Role="RECEPTION" Type="Self.RECEPTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOSPITAL">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RECEPTION">
+              <PropertyRef Name="HospitalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specialization_DOCTOR">
+          <End Role="DOCTOR" Type="Self.DOCTOR" Multiplicity="1" />
+          <End Role="Specialization" Type="Self.Specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCTOR">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Specialization">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specialization_PrescriptionTypes">
+          <End Role="PrescriptionTypes" Type="Self.PrescriptionTypes" Multiplicity="1" />
+          <End Role="Specialization" Type="Self.Specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrescriptionTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Specialization">
+              <PropertyRef Name="PrescriptionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VISIT_HOSPITAL">
+          <End Role="HOSPITAL" Type="Self.HOSPITAL" Multiplicity="1" />
+          <End Role="VISIT" Type="Self.VISIT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOSPITAL">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VISIT">
+              <PropertyRef Name="HospitalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ISHmockModelStoreContainer">
+          <EntitySet Name="Billing" EntityType="Self.Billing" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DIAGNOSIS" EntityType="Self.DIAGNOSIS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DOCTOR" EntityType="Self.DOCTOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ElectronicClaims" EntityType="Self.ElectronicClaims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EXAMINE" EntityType="Self.EXAMINE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HOSPITAL" EntityType="Self.HOSPITAL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MEDICINE" EntityType="Self.MEDICINE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MEDICINE_COUNTRY" EntityType="Self.MEDICINE_COUNTRY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NURSE" EntityType="Self.NURSE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PATIENT" EntityType="Self.PATIENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PrescriptionTypes" EntityType="Self.PrescriptionTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PURCHASE" EntityType="Self.PURCHASE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Qualification" EntityType="Self.Qualification" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RECEPTION" EntityType="Self.RECEPTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VISIT" EntityType="Self.VISIT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DialysisPrescriptions" EntityType="Self.DialysisPrescriptions" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DialysisPrescriptions].[Id] AS [Id], 
+    [DialysisPrescriptions].[PrescriptionTypeId] AS [PrescriptionTypeId], 
+    [DialysisPrescriptions].[Haemodialysis] AS [Haemodialysis], 
+    [DialysisPrescriptions].[Haemodialfiltration] AS [Haemodialfiltration], 
+    [DialysisPrescriptions].[DialyserLevelIds] AS [DialyserLevelIds], 
+    [DialysisPrescriptions].[Frequency] AS [Frequency], 
+    [DialysisPrescriptions].[Duration] AS [Duration], 
+    [DialysisPrescriptions].[UnfractionatedHeparin] AS [UnfractionatedHeparin], 
+    [DialysisPrescriptions].[LowMolecularWeightHeparin] AS [LowMolecularWeightHeparin], 
+    [DialysisPrescriptions].[Other] AS [Other], 
+    [DialysisPrescriptions].[DialysisAccessOptionId] AS [DialysisAccessOptionId], 
+    [DialysisPrescriptions].[NeedleSize] AS [NeedleSize], 
+    [DialysisPrescriptions].[PumpSpeed] AS [PumpSpeed], 
+    [DialysisPrescriptions].[AcidConcentrate] AS [AcidConcentrate], 
+    [DialysisPrescriptions].[DialysateFlow] AS [DialysateFlow], 
+    [DialysisPrescriptions].[DialysateTemparature] AS [DialysateTemparature], 
+    [DialysisPrescriptions].[GoalKtv] AS [GoalKtv], 
+    [DialysisPrescriptions].[DryWeight] AS [DryWeight], 
+    [DialysisPrescriptions].[Ultrafiltration] AS [Ultrafiltration], 
+    [DialysisPrescriptions].[RepeatScript] AS [RepeatScript], 
+    [DialysisPrescriptions].[Sodium] AS [Sodium], 
+    [DialysisPrescriptions].[UFProfile] AS [UFProfile], 
+    [DialysisPrescriptions].[More] AS [More], 
+    [DialysisPrescriptions].[MoreText] AS [MoreText], 
+    [DialysisPrescriptions].[Comment] AS [Comment], 
+    [DialysisPrescriptions].[Finalised] AS [Finalised], 
+    [DialysisPrescriptions].[DocumentId] AS [DocumentId], 
+    [DialysisPrescriptions].[DocumentKey] AS [DocumentKey], 
+    [DialysisPrescriptions].[VerificationCode] AS [VerificationCode], 
+    [DialysisPrescriptions].[ModifiedDate] AS [ModifiedDate], 
+    [DialysisPrescriptions].[ModifiedBy] AS [ModifiedBy], 
+    [DialysisPrescriptions].[StatusId] AS [StatusId]
+    FROM [dbo].[DialysisPrescriptions] AS [DialysisPrescriptions]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Specialization" EntityType="Self.Specialization" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Specialization].[Id] AS [Id], 
+    [Specialization].[Name] AS [Name], 
+    [Specialization].[PrescriptionTypeId] AS [PrescriptionTypeId]
+    FROM [dbo].[Specialization] AS [Specialization]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_DIAGNOSIS_NURSE" Association="Self.FK_DIAGNOSIS_NURSE">
+            <End Role="NURSE" EntitySet="NURSE" />
+            <End Role="DIAGNOSIS" EntitySet="DIAGNOSIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DialysisPrescriptions_PrescriptionTypes" Association="Self.FK_DialysisPrescriptions_PrescriptionTypes">
+            <End Role="PrescriptionTypes" EntitySet="PrescriptionTypes" />
+            <End Role="DialysisPrescriptions" EntitySet="DialysisPrescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXAMINE_DOCTOR" Association="Self.FK_EXAMINE_DOCTOR">
+            <End Role="DOCTOR" EntitySet="DOCTOR" />
+            <End Role="EXAMINE" EntitySet="EXAMINE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MEDICINE_COUNTRY_MEDICINE" Association="Self.FK_MEDICINE_COUNTRY_MEDICINE">
+            <End Role="MEDICINE" EntitySet="MEDICINE" />
+            <End Role="MEDICINE_COUNTRY" EntitySet="MEDICINE_COUNTRY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NURSE_DOCTOR" Association="Self.FK_NURSE_DOCTOR">
+            <End Role="DOCTOR" EntitySet="DOCTOR" />
+            <End Role="NURSE" EntitySet="NURSE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECEPTION_HOSPITAL" Association="Self.FK_RECEPTION_HOSPITAL">
+            <End Role="HOSPITAL" EntitySet="HOSPITAL" />
+            <End Role="RECEPTION" EntitySet="RECEPTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specialization_DOCTOR" Association="Self.FK_Specialization_DOCTOR">
+            <End Role="DOCTOR" EntitySet="DOCTOR" />
+            <End Role="Specialization" EntitySet="Specialization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specialization_PrescriptionTypes" Association="Self.FK_Specialization_PrescriptionTypes">
+            <End Role="PrescriptionTypes" EntitySet="PrescriptionTypes" />
+            <End Role="Specialization" EntitySet="Specialization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VISIT_HOSPITAL" Association="Self.FK_VISIT_HOSPITAL">
+            <End Role="HOSPITAL" EntitySet="HOSPITAL" />
+            <End Role="VISIT" EntitySet="VISIT" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -130,19 +441,9 @@
           <Property Name="ISSUE_DATE" Type="DateTime" Precision="0" />
           <Property Name="TREATMENT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="REMARKS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="NURSE_ID" Type="Int32" />
-          <Property Name="DOC_ID" Type="Int32" />
-        </EntityType>
-        <EntityType Name="DOCTOR">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="DNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="QUALIFICATION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="JOB_SPECIFICATION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="HOSP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NURSE_ID" Type="Int32" Nullable="false" />
+          <Property Name="DOC_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NURSE" Relationship="ISHmockModel.FK_DIAGNOSIS_NURSE" FromRole="DIAGNOSI" ToRole="NURSE" />
         </EntityType>
         <EntityType Name="EXAMINE">
           <Key>
@@ -150,6 +451,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="DOC_ID" Type="Int32" />
+          <NavigationProperty Name="DOCTOR" Relationship="ISHmockModel.FK_EXAMINE_DOCTOR" FromRole="EXAMINE" ToRole="DOCTOR" />
         </EntityType>
         <EntityType Name="HOSPITAL">
           <Key>
@@ -158,6 +460,8 @@
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="COUNTRY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RECEPTIONs" Relationship="ISHmockModel.FK_RECEPTION_HOSPITAL" FromRole="HOSPITAL" ToRole="RECEPTION" />
+          <NavigationProperty Name="VISITs" Relationship="ISHmockModel.FK_VISIT_HOSPITAL" FromRole="HOSPITAL" ToRole="VISIT" />
         </EntityType>
         <EntityType Name="MEDICINE">
           <Key>
@@ -167,6 +471,7 @@
           <Property Name="MED_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRICE" Type="Decimal" Precision="18" Scale="3" />
           <Property Name="EXP_DATE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="MEDICINE_COUNTRY" Relationship="ISHmockModel.FK_MEDICINE_COUNTRY_MEDICINE" FromRole="MEDICINE" ToRole="MEDICINE_COUNTRY" />
         </EntityType>
         <EntityType Name="MEDICINE_COUNTRY">
           <Key>
@@ -175,6 +480,8 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="MAN_COUNTRY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MedicineId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MEDICINE" Relationship="ISHmockModel.FK_MEDICINE_COUNTRY_MEDICINE" FromRole="MEDICINE_COUNTRY" ToRole="MEDICINE" />
         </EntityType>
         <EntityType Name="NURSE">
           <Key>
@@ -183,8 +490,10 @@
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="DOC_ID" Type="Int32" />
+          <Property Name="DOC_ID" Type="Int32" Nullable="false" />
           <Property Name="HOSP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIAGNOSIS" Relationship="ISHmockModel.FK_DIAGNOSIS_NURSE" FromRole="NURSE" ToRole="DIAGNOSI" />
+          <NavigationProperty Name="DOCTOR" Relationship="ISHmockModel.FK_NURSE_DOCTOR" FromRole="NURSE" ToRole="DOCTOR" />
         </EntityType>
         <EntityType Name="PATIENT">
           <Key>
@@ -213,6 +522,8 @@
           <Property Name="TEL_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="HOSP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HospitalId" Type="Int32" />
+          <NavigationProperty Name="HOSPITAL" Relationship="ISHmockModel.FK_RECEPTION_HOSPITAL" FromRole="RECEPTION" ToRole="HOSPITAL" />
         </EntityType>
         <EntityType Name="VISIT">
           <Key>
@@ -221,10 +532,11 @@
           <Property Name="VISIT_DATE" Type="DateTime" Precision="0" />
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="HOSP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="HospitalId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HOSPITAL" Relationship="ISHmockModel.FK_VISIT_HOSPITAL" FromRole="VISIT" ToRole="HOSPITAL" />
         </EntityType>
         <EntityContainer Name="ISHmockEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DIAGNOSIS" EntityType="Self.DIAGNOSI" />
-          <EntitySet Name="DOCTORs" EntityType="Self.DOCTOR" />
           <EntitySet Name="EXAMINEs" EntityType="Self.EXAMINE" />
           <EntitySet Name="HOSPITALs" EntityType="Self.HOSPITAL" />
           <EntitySet Name="MEDICINEs" EntityType="Self.MEDICINE" />
@@ -234,7 +546,290 @@
           <EntitySet Name="PURCHASEs" EntityType="Self.PURCHASE" />
           <EntitySet Name="RECEPTIONs" EntityType="Self.RECEPTION" />
           <EntitySet Name="VISITs" EntityType="Self.VISIT" />
+          <AssociationSet Name="FK_DIAGNOSIS_NURSE" Association="ISHmockModel.FK_DIAGNOSIS_NURSE">
+            <End Role="NURSE" EntitySet="NURSEs" />
+            <End Role="DIAGNOSI" EntitySet="DIAGNOSIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECEPTION_HOSPITAL" Association="ISHmockModel.FK_RECEPTION_HOSPITAL">
+            <End Role="HOSPITAL" EntitySet="HOSPITALs" />
+            <End Role="RECEPTION" EntitySet="RECEPTIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VISIT_HOSPITAL" Association="ISHmockModel.FK_VISIT_HOSPITAL">
+            <End Role="HOSPITAL" EntitySet="HOSPITALs" />
+            <End Role="VISIT" EntitySet="VISITs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MEDICINE_COUNTRY_MEDICINE" Association="ISHmockModel.FK_MEDICINE_COUNTRY_MEDICINE">
+            <End Role="MEDICINE" EntitySet="MEDICINEs" />
+            <End Role="MEDICINE_COUNTRY" EntitySet="MEDICINE_COUNTRY" />
+          </AssociationSet>
+          <EntitySet Name="Billings" EntityType="ISHmockModel.Billing" />
+          <EntitySet Name="Services" EntityType="ISHmockModel.Service" />
+          <EntitySet Name="sysdiagrams" EntityType="ISHmockModel.sysdiagram" />
+          <EntitySet Name="ElectronicClaims" EntityType="ISHmockModel.ElectronicClaim" />
+          <EntitySet Name="PrescriptionTypes" EntityType="ISHmockModel.PrescriptionType" />
+          <EntitySet Name="Qualifications" EntityType="ISHmockModel.Qualification" />
+          <EntitySet Name="DialysisPrescriptions" EntityType="ISHmockModel.DialysisPrescription" />
+          <EntitySet Name="Specializations" EntityType="ISHmockModel.Specialization" />
+          <AssociationSet Name="FK_DialysisPrescriptions_PrescriptionTypes" Association="ISHmockModel.FK_DialysisPrescriptions_PrescriptionTypes">
+            <End Role="PrescriptionType" EntitySet="PrescriptionTypes" />
+            <End Role="DialysisPrescription" EntitySet="DialysisPrescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specialization_PrescriptionTypes" Association="ISHmockModel.FK_Specialization_PrescriptionTypes">
+            <End Role="PrescriptionType" EntitySet="PrescriptionTypes" />
+            <End Role="Specialization" EntitySet="Specializations" />
+          </AssociationSet>
+          <EntitySet Name="DOCTORs" EntityType="ISHmockModel.DOCTOR" />
+          <AssociationSet Name="FK_EXAMINE_DOCTOR" Association="ISHmockModel.FK_EXAMINE_DOCTOR">
+            <End Role="DOCTOR" EntitySet="DOCTORs" />
+            <End Role="EXAMINE" EntitySet="EXAMINEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NURSE_DOCTOR" Association="ISHmockModel.FK_NURSE_DOCTOR">
+            <End Role="DOCTOR" EntitySet="DOCTORs" />
+            <End Role="NURSE" EntitySet="NURSEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specialization_DOCTOR" Association="ISHmockModel.FK_Specialization_DOCTOR">
+            <End Role="DOCTOR" EntitySet="DOCTORs" />
+            <End Role="Specialization" EntitySet="Specializations" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_DIAGNOSIS_NURSE">
+          <End Type="ISHmockModel.NURSE" Role="NURSE" Multiplicity="1" />
+          <End Type="ISHmockModel.DIAGNOSI" Role="DIAGNOSI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NURSE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DIAGNOSI">
+              <PropertyRef Name="NURSE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECEPTION_HOSPITAL">
+          <End Type="ISHmockModel.HOSPITAL" Role="HOSPITAL" Multiplicity="0..1" />
+          <End Type="ISHmockModel.RECEPTION" Role="RECEPTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOSPITAL">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RECEPTION">
+              <PropertyRef Name="HospitalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VISIT_HOSPITAL">
+          <End Type="ISHmockModel.HOSPITAL" Role="HOSPITAL" Multiplicity="1" />
+          <End Type="ISHmockModel.VISIT" Role="VISIT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOSPITAL">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VISIT">
+              <PropertyRef Name="HospitalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MEDICINE_COUNTRY_MEDICINE">
+          <End Type="ISHmockModel.MEDICINE" Role="MEDICINE" Multiplicity="1" />
+          <End Type="ISHmockModel.MEDICINE_COUNTRY" Role="MEDICINE_COUNTRY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICINE">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="MEDICINE_COUNTRY">
+              <PropertyRef Name="MedicineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Billing">
+          <Key>
+            <PropertyRef Name="BillingID" />
+          </Key>
+          <Property Name="BillingID" Type="Int32" Nullable="false" />
+          <Property Name="AppointmentID" Type="Int32" />
+          <Property Name="ServiceID" Type="Int32" />
+          <Property Name="AmountPaid" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="BillingDate" Type="DateTime" Precision="3" />
+          <Property Name="ClaimID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="Int32" Nullable="false" />
+          <Property Name="ServiceName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Charge" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ElectronicClaim">
+          <Key>
+            <PropertyRef Name="claim_id" />
+          </Key>
+          <Property Name="claim_id" Type="Int32" Nullable="false" />
+          <Property Name="patient_id" Type="Int32" />
+          <Property Name="provider_id" Type="Int32" />
+          <Property Name="claim_date" Type="DateTime" Precision="0" />
+          <Property Name="claim_amount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="diagnosis_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="procedure_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="submitted_date" Type="DateTime" Precision="0" />
+          <Property Name="adjudicated_date" Type="DateTime" Precision="0" />
+          <Property Name="payment_amount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="payment_date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="PrescriptionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="PrescriptionType1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DialysisPrescriptions" Relationship="ISHmockModel.FK_DialysisPrescriptions_PrescriptionTypes" FromRole="PrescriptionType" ToRole="DialysisPrescription" />
+          <NavigationProperty Name="Specializations" Relationship="ISHmockModel.FK_Specialization_PrescriptionTypes" FromRole="PrescriptionType" ToRole="Specialization" />
+        </EntityType>
+        <EntityType Name="Qualification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DialysisPrescription">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="PrescriptionTypeId" />
+            <PropertyRef Name="Haemodialysis" />
+            <PropertyRef Name="Haemodialfiltration" />
+            <PropertyRef Name="DialyserLevelIds" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PrescriptionTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Haemodialysis" Type="Boolean" Nullable="false" />
+          <Property Name="Haemodialfiltration" Type="Boolean" Nullable="false" />
+          <Property Name="DialyserLevelIds" Type="Int32" Nullable="false" />
+          <Property Name="Frequency" Type="Int32" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="UnfractionatedHeparin" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="LowMolecularWeightHeparin" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="Other" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DialysisAccessOptionId" Type="Int64" />
+          <Property Name="NeedleSize" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PumpSpeed" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="AcidConcentrate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DialysateFlow" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="DialysateTemparature" Type="Decimal" Precision="7" Scale="1" />
+          <Property Name="GoalKtv" Type="Decimal" Precision="7" Scale="1" />
+          <Property Name="DryWeight" Type="Decimal" Precision="7" Scale="1" />
+          <Property Name="Ultrafiltration" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="RepeatScript" Type="Int32" />
+          <Property Name="Sodium" Type="Boolean" />
+          <Property Name="UFProfile" Type="Boolean" />
+          <Property Name="More" Type="Boolean" />
+          <Property Name="MoreText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Finalised" Type="Boolean" />
+          <Property Name="DocumentId" Type="Int64" />
+          <Property Name="DocumentKey" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VerificationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="7" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="StatusId" Type="Int32" />
+          <NavigationProperty Name="PrescriptionType" Relationship="ISHmockModel.FK_DialysisPrescriptions_PrescriptionTypes" FromRole="DialysisPrescription" ToRole="PrescriptionType" />
+        </EntityType>
+        <EntityType Name="Specialization">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="PrescriptionTypeId" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PrescriptionTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PrescriptionType" Relationship="ISHmockModel.FK_Specialization_PrescriptionTypes" FromRole="Specialization" ToRole="PrescriptionType" />
+          <NavigationProperty Name="DOCTOR" Relationship="ISHmockModel.FK_Specialization_DOCTOR" FromRole="Specialization" ToRole="DOCTOR" />
+        </EntityType>
+        <Association Name="FK_DialysisPrescriptions_PrescriptionTypes">
+          <End Type="ISHmockModel.PrescriptionType" Role="PrescriptionType" Multiplicity="1" />
+          <End Type="ISHmockModel.DialysisPrescription" Role="DialysisPrescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrescriptionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DialysisPrescription">
+              <PropertyRef Name="PrescriptionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specialization_PrescriptionTypes">
+          <End Type="ISHmockModel.PrescriptionType" Role="PrescriptionType" Multiplicity="1" />
+          <End Type="ISHmockModel.Specialization" Role="Specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrescriptionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Specialization">
+              <PropertyRef Name="PrescriptionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DOCTOR">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DNAME" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GENDER" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="QUALIFICATIONID" Type="Int32" Nullable="false" />
+          <Property Name="SpecialistTypeID" Type="Int32" Nullable="false" />
+          <Property Name="HOSP_NAME" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EXAMINEs" Relationship="ISHmockModel.FK_EXAMINE_DOCTOR" FromRole="DOCTOR" ToRole="EXAMINE" />
+          <NavigationProperty Name="NURSEs" Relationship="ISHmockModel.FK_NURSE_DOCTOR" FromRole="DOCTOR" ToRole="NURSE" />
+          <NavigationProperty Name="Specializations" Relationship="ISHmockModel.FK_Specialization_DOCTOR" FromRole="DOCTOR" ToRole="Specialization" />
+        </EntityType>
+        <Association Name="FK_EXAMINE_DOCTOR">
+          <End Type="ISHmockModel.DOCTOR" Role="DOCTOR" Multiplicity="0..1" />
+          <End Type="ISHmockModel.EXAMINE" Role="EXAMINE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCTOR">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EXAMINE">
+              <PropertyRef Name="DOC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NURSE_DOCTOR">
+          <End Type="ISHmockModel.DOCTOR" Role="DOCTOR" Multiplicity="1" />
+          <End Type="ISHmockModel.NURSE" Role="NURSE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCTOR">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="NURSE">
+              <PropertyRef Name="DOC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specialization_DOCTOR">
+          <End Type="ISHmockModel.DOCTOR" Role="DOCTOR" Multiplicity="1" />
+          <End Type="ISHmockModel.Specialization" Role="Specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCTOR">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Specialization">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -250,18 +845,6 @@
                 <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
                 <ScalarProperty Name="NURSE_ID" ColumnName="NURSE_ID" />
                 <ScalarProperty Name="DOC_ID" ColumnName="DOC_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DOCTORs">
-            <EntityTypeMapping TypeName="ISHmockModel.DOCTOR">
-              <MappingFragment StoreEntitySet="DOCTOR">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="DNAME" ColumnName="DNAME" />
-                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
-                <ScalarProperty Name="QUALIFICATION" ColumnName="QUALIFICATION" />
-                <ScalarProperty Name="JOB_SPECIFICATION" ColumnName="JOB_SPECIFICATION" />
-                <ScalarProperty Name="HOSP_NAME" ColumnName="HOSP_NAME" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -295,6 +878,7 @@
           <EntitySetMapping Name="MEDICINE_COUNTRY">
             <EntityTypeMapping TypeName="ISHmockModel.MEDICINE_COUNTRY">
               <MappingFragment StoreEntitySet="MEDICINE_COUNTRY">
+                <ScalarProperty Name="MedicineId" ColumnName="MedicineId" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="MAN_COUNTRY" ColumnName="MAN_COUNTRY" />
               </MappingFragment>
@@ -335,6 +919,7 @@
           <EntitySetMapping Name="RECEPTIONs">
             <EntityTypeMapping TypeName="ISHmockModel.RECEPTION">
               <MappingFragment StoreEntitySet="RECEPTION">
+                <ScalarProperty Name="HospitalId" ColumnName="HospitalId" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="TEL_NO" ColumnName="TEL_NO" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
@@ -345,9 +930,135 @@
           <EntitySetMapping Name="VISITs">
             <EntityTypeMapping TypeName="ISHmockModel.VISIT">
               <MappingFragment StoreEntitySet="VISIT">
+                <ScalarProperty Name="HospitalId" ColumnName="HospitalId" />
                 <ScalarProperty Name="VISIT_DATE" ColumnName="VISIT_DATE" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="HOSP_NAME" ColumnName="HOSP_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Billings">
+            <EntityTypeMapping TypeName="ISHmockModel.Billing">
+              <MappingFragment StoreEntitySet="Billing">
+                <ScalarProperty Name="ClaimID" ColumnName="ClaimID" />
+                <ScalarProperty Name="BillingDate" ColumnName="BillingDate" />
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+                <ScalarProperty Name="BillingID" ColumnName="BillingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="ISHmockModel.Service">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ISHmockModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ElectronicClaims">
+            <EntityTypeMapping TypeName="ISHmockModel.ElectronicClaim">
+              <MappingFragment StoreEntitySet="ElectronicClaims">
+                <ScalarProperty Name="payment_date" ColumnName="payment_date" />
+                <ScalarProperty Name="payment_amount" ColumnName="payment_amount" />
+                <ScalarProperty Name="adjudicated_date" ColumnName="adjudicated_date" />
+                <ScalarProperty Name="submitted_date" ColumnName="submitted_date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="procedure_code" ColumnName="procedure_code" />
+                <ScalarProperty Name="diagnosis_code" ColumnName="diagnosis_code" />
+                <ScalarProperty Name="claim_amount" ColumnName="claim_amount" />
+                <ScalarProperty Name="claim_date" ColumnName="claim_date" />
+                <ScalarProperty Name="provider_id" ColumnName="provider_id" />
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="claim_id" ColumnName="claim_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrescriptionTypes">
+            <EntityTypeMapping TypeName="ISHmockModel.PrescriptionType">
+              <MappingFragment StoreEntitySet="PrescriptionTypes">
+                <ScalarProperty Name="PrescriptionType1" ColumnName="PrescriptionType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Qualifications">
+            <EntityTypeMapping TypeName="ISHmockModel.Qualification">
+              <MappingFragment StoreEntitySet="Qualification">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DialysisPrescriptions">
+            <EntityTypeMapping TypeName="ISHmockModel.DialysisPrescription">
+              <MappingFragment StoreEntitySet="DialysisPrescriptions">
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="VerificationCode" ColumnName="VerificationCode" />
+                <ScalarProperty Name="DocumentKey" ColumnName="DocumentKey" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="Finalised" ColumnName="Finalised" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="MoreText" ColumnName="MoreText" />
+                <ScalarProperty Name="More" ColumnName="More" />
+                <ScalarProperty Name="UFProfile" ColumnName="UFProfile" />
+                <ScalarProperty Name="Sodium" ColumnName="Sodium" />
+                <ScalarProperty Name="RepeatScript" ColumnName="RepeatScript" />
+                <ScalarProperty Name="Ultrafiltration" ColumnName="Ultrafiltration" />
+                <ScalarProperty Name="DryWeight" ColumnName="DryWeight" />
+                <ScalarProperty Name="GoalKtv" ColumnName="GoalKtv" />
+                <ScalarProperty Name="DialysateTemparature" ColumnName="DialysateTemparature" />
+                <ScalarProperty Name="DialysateFlow" ColumnName="DialysateFlow" />
+                <ScalarProperty Name="AcidConcentrate" ColumnName="AcidConcentrate" />
+                <ScalarProperty Name="PumpSpeed" ColumnName="PumpSpeed" />
+                <ScalarProperty Name="NeedleSize" ColumnName="NeedleSize" />
+                <ScalarProperty Name="DialysisAccessOptionId" ColumnName="DialysisAccessOptionId" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="LowMolecularWeightHeparin" ColumnName="LowMolecularWeightHeparin" />
+                <ScalarProperty Name="UnfractionatedHeparin" ColumnName="UnfractionatedHeparin" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+                <ScalarProperty Name="DialyserLevelIds" ColumnName="DialyserLevelIds" />
+                <ScalarProperty Name="Haemodialfiltration" ColumnName="Haemodialfiltration" />
+                <ScalarProperty Name="Haemodialysis" ColumnName="Haemodialysis" />
+                <ScalarProperty Name="PrescriptionTypeId" ColumnName="PrescriptionTypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specializations">
+            <EntityTypeMapping TypeName="ISHmockModel.Specialization">
+              <MappingFragment StoreEntitySet="Specialization">
+                <ScalarProperty Name="PrescriptionTypeId" ColumnName="PrescriptionTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOCTORs">
+            <EntityTypeMapping TypeName="ISHmockModel.DOCTOR">
+              <MappingFragment StoreEntitySet="DOCTOR">
+                <ScalarProperty Name="HOSP_NAME" ColumnName="HOSP_NAME" />
+                <ScalarProperty Name="SpecialistTypeID" ColumnName="SpecialistTypeID" />
+                <ScalarProperty Name="QUALIFICATIONID" ColumnName="QUALIFICATIONID" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="DNAME" ColumnName="DNAME" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

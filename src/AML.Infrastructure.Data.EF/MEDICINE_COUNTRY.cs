@@ -16,5 +16,8 @@ namespace AML.Infrastructure.Data.EF
     {
         public int id { get; set; }
         public string MAN_COUNTRY { get; set; }
+        public int MedicineId { get; set; }
+    
+        public virtual MEDICINE MEDICINE { get; set; }
     }
 }

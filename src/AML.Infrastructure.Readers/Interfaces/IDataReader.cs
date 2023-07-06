@@ -11,9 +11,9 @@ namespace SKF.Infrastructure.Readers.Interfaces
         P GetData();
     }
 
-    public interface IKeyParametricDataReader<P>
+         public interface IKeyParametricDataReader<P>
         {
-        P GetData(string keyValue);
+             P GetData(string keyValue);
         }
 
 }

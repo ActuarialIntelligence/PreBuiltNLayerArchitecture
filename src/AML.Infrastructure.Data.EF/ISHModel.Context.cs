@@ -26,7 +26,6 @@ namespace AML.Infrastructure.Data.EF
         }
     
         public virtual DbSet<DIAGNOSI> DIAGNOSIS { get; set; }
-        public virtual DbSet<DOCTOR> DOCTORs { get; set; }
         public virtual DbSet<EXAMINE> EXAMINEs { get; set; }
         public virtual DbSet<HOSPITAL> HOSPITALs { get; set; }
         public virtual DbSet<MEDICINE> MEDICINEs { get; set; }
@@ -36,5 +35,14 @@ namespace AML.Infrastructure.Data.EF
         public virtual DbSet<PURCHASE> PURCHASEs { get; set; }
         public virtual DbSet<RECEPTION> RECEPTIONs { get; set; }
         public virtual DbSet<VISIT> VISITs { get; set; }
+        public virtual DbSet<Billing> Billings { get; set; }
+        public virtual DbSet<Service> Services { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<ElectronicClaim> ElectronicClaims { get; set; }
+        public virtual DbSet<PrescriptionType> PrescriptionTypes { get; set; }
+        public virtual DbSet<Qualification> Qualifications { get; set; }
+        public virtual DbSet<DialysisPrescription> DialysisPrescriptions { get; set; }
+        public virtual DbSet<Specialization> Specializations { get; set; }
+        public virtual DbSet<DOCTOR> DOCTORs { get; set; }
     }
 }

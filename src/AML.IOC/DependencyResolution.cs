@@ -11,10 +11,12 @@ namespace SKF.IOC ///Inversion of control
     /// </summary>
     public static class DependencyResolution
     {
+        // Factory Pattern 
         public static UnityContainer container { get; private set; }
-        public static void ConstructContainer()
+        public static void ConstructContainerAndRegisterTypes()
         {
             container = new UnityContainer();
+            container.RegisterType<IDataReader<IList<DJListRow>>, DJExcelFileReader>();
         }
         /// <summary>
         /// For example purposes.
@@ -22,7 +24,6 @@ namespace SKF.IOC ///Inversion of control
         /// <returns></returns>
         public static IDataReader<IList<DJListRow>> GetDJExcelFileReader()
         {
-            container.RegisterType<IDataReader<IList<DJListRow>>, DJExcelFileReader>();
             var reader = container.Resolve<DJExcelFileReader>();// Resolving using constructor DI.
             return reader;
         }

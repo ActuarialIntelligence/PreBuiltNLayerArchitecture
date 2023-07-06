@@ -18,5 +18,8 @@ namespace AML.Infrastructure.Data.EF
         public string TEL_NO { get; set; }
         public string EMAIL { get; set; }
         public string HOSP_NAME { get; set; }
+        public Nullable<int> HospitalId { get; set; }
+    
+        public virtual HOSPITAL HOSPITAL { get; set; }
     }
 }

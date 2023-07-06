@@ -18,7 +18,9 @@ namespace AML.Infrastructure.Data.EF
         public Nullable<System.DateTime> ISSUE_DATE { get; set; }
         public string TREATMENT { get; set; }
         public string REMARKS { get; set; }
-        public Nullable<int> NURSE_ID { get; set; }
-        public Nullable<int> DOC_ID { get; set; }
+        public int NURSE_ID { get; set; }
+        public int DOC_ID { get; set; }
+    
+        public virtual NURSE NURSE { get; set; }
     }
 }

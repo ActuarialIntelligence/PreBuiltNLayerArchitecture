@@ -19,14 +19,14 @@ C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Wri
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\bin\Debug\AML.infrastructure.Data.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\bin\Debug\FileHelpers.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\bin\Debug\AML.Domain.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\bin\Debug\AML.Domain.dll.config
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\bin\Debug\AML.Infrastructure.Connections.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\bin\Debug\AML.Infrastructure.Connections.dll.config
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\bin\Debug\AML.infrastructure.Data.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\bin\Debug\AML.infrastructure.Data.dll.config
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\bin\Debug\FileHelpers.xml
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\obj\Debug\SKF.Infrastructure.Writers.csproj.AssemblyReference.cache
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\obj\Debug\SKF.Infrastructure.Writers.csproj.CoreCompileInputs.cache
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\obj\Debug\SKF.Infrastructure.Writers.csproj.CopyComplete
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\obj\Debug\AML.Infrastructure.Writers.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\obj\Debug\AML.Infrastructure.Writers.pdb
-C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\bin\Debug\AML.Domain.dll.config
-C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\bin\Debug\AML.Infrastructure.Connections.dll.config
-C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.Infrastructure.Writers\bin\Debug\AML.infrastructure.Data.dll.config

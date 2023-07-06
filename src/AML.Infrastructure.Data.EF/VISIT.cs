@@ -17,5 +17,8 @@ namespace AML.Infrastructure.Data.EF
         public Nullable<System.DateTime> VISIT_DATE { get; set; }
         public int id { get; set; }
         public string HOSP_NAME { get; set; }
+        public int HospitalId { get; set; }
+    
+        public virtual HOSPITAL HOSPITAL { get; set; }
     }
 }

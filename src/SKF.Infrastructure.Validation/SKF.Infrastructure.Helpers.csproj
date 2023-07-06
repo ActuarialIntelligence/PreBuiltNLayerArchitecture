@@ -41,8 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ChatGPTCaller.cs" />
+    <Compile Include="RestCallHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AML.Infrastructure.Data.EF\SKF.Infrastructure.Data.EF.csproj">
+      <Project>{6c967094-1968-4066-801f-8ddd1a2c1874}</Project>
+      <Name>SKF.Infrastructure.Data.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AML.infrastructure.Data\SKF.infrastructure.Data.csproj">
+      <Project>{4a2cf174-007b-4528-ba54-0fefe0b9a70a}</Project>
+      <Name>SKF.infrastructure.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

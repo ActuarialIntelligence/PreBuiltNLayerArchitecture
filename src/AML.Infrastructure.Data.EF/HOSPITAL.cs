@@ -14,8 +14,20 @@ namespace AML.Infrastructure.Data.EF
     
     public partial class HOSPITAL
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HOSPITAL()
+        {
+            this.RECEPTIONs = new HashSet<RECEPTION>();
+            this.VISITs = new HashSet<VISIT>();
+        }
+    
         public int id { get; set; }
         public string COUNTRY { get; set; }
         public string ADDRESS { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RECEPTION> RECEPTIONs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VISIT> VISITs { get; set; }
     }
 }

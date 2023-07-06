@@ -14,9 +14,18 @@ namespace AML.Infrastructure.Data.EF
     
     public partial class MEDICINE
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MEDICINE()
+        {
+            this.MEDICINE_COUNTRY = new HashSet<MEDICINE_COUNTRY>();
+        }
+    
         public int id { get; set; }
         public string MED_NAME { get; set; }
         public Nullable<decimal> PRICE { get; set; }
         public Nullable<System.DateTime> EXP_DATE { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MEDICINE_COUNTRY> MEDICINE_COUNTRY { get; set; }
     }
 }

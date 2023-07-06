@@ -14,11 +14,26 @@ namespace AML.Infrastructure.Data.EF
     
     public partial class DOCTOR
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DOCTOR()
+        {
+            this.EXAMINEs = new HashSet<EXAMINE>();
+            this.NURSEs = new HashSet<NURSE>();
+            this.Specializations = new HashSet<Specialization>();
+        }
+    
         public int id { get; set; }
         public string DNAME { get; set; }
         public string GENDER { get; set; }
-        public string QUALIFICATION { get; set; }
-        public string JOB_SPECIFICATION { get; set; }
+        public int QUALIFICATIONID { get; set; }
+        public int SpecialistTypeID { get; set; }
         public string HOSP_NAME { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EXAMINE> EXAMINEs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NURSE> NURSEs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Specialization> Specializations { get; set; }
     }
 }

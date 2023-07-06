@@ -14,10 +14,20 @@ namespace AML.Infrastructure.Data.EF
     
     public partial class NURSE
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NURSE()
+        {
+            this.DIAGNOSIS = new HashSet<DIAGNOSI>();
+        }
+    
         public int id { get; set; }
         public string NAME { get; set; }
         public string GENDER { get; set; }
-        public Nullable<int> DOC_ID { get; set; }
+        public int DOC_ID { get; set; }
         public string HOSP_NAME { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DIAGNOSI> DIAGNOSIS { get; set; }
+        public virtual DOCTOR DOCTOR { get; set; }
     }
 }

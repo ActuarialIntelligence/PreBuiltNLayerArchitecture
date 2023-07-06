@@ -16,5 +16,7 @@ namespace AML.Infrastructure.Data.EF
     {
         public int id { get; set; }
         public Nullable<int> DOC_ID { get; set; }
+    
+        public virtual DOCTOR DOCTOR { get; set; }
     }
 }

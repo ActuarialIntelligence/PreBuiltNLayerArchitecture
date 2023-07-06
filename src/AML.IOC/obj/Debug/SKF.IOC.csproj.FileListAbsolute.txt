@@ -36,6 +36,7 @@ C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.IOC\obj\Debug\SKF.IOC.
 C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.IOC\obj\Debug\SKF.IOC.csproj.CoreCompileInputs.cache
 C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.IOC\obj\Debug\AML.IOC.dll
 C:\Users\jyp1510\Documents\Projects\ConvertExcelToCsv\AML.IOC\obj\Debug\AML.IOC.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.IOC.dll.config
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.IOC.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.IOC.pdb
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Domain.dll
@@ -46,6 +47,8 @@ C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Infrastructure.Writers.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Serialization.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\CommonServiceLocator.dll
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\EntityFramework.dll
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\Unity.Abstractions.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\Unity.Configuration.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\Unity.Container.dll
@@ -54,7 +57,6 @@ C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\Unit
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\Unity.RegistrationByConvention.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\Unity.ServiceLocation.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\FileHelpers.dll
-C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\EntityFramework.dll
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Domain.pdb
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Domain.dll.config
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Infrastructure.Connections.pdb
@@ -70,6 +72,8 @@ C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Serialization.pdb
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\AML.Serialization.dll.config
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\CommonServiceLocator.pdb
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\EntityFramework.xml
+C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\Unity.Abstractions.pdb
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\Unity.Configuration.pdb
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\Unity.Container.pdb
@@ -78,7 +82,6 @@ C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\Unit
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\Unity.RegistrationByConvention.pdb
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\Unity.ServiceLocation.pdb
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\FileHelpers.xml
-C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\bin\Debug\EntityFramework.xml
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\obj\Debug\SKF.IOC.csproj.AssemblyReference.cache
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\obj\Debug\SKF.IOC.csproj.CoreCompileInputs.cache
 C:\Users\rajah\OneDrive\Documents\Projects\ISHPlusMoq\src\AML.IOC\obj\Debug\SKF.IOC.csproj.CopyComplete

@@ -10,6 +10,7 @@ namespace APIConsumerTestApplication
         {
 
             var psi = new ProcessStartInfo();
+            //please put into config file, this is testing only
             psi.FileName = @"C:\Python311\python.exe";
             var script = @"C:\Users\rajah\OneDrive\Documents\Projects\AI\Base\src\ActuarialIntelligence.Infrastructure.PythonScripts\Recommendation.py";
             psi.Arguments = $"\"{script}\"";
@@ -31,7 +32,7 @@ namespace APIConsumerTestApplication
             Console.WriteLine();
             Console.WriteLine("Results:");
             Console.WriteLine(results);
-
+            // You can call a serializer here, the appropriate one for the call model
 
         }
 

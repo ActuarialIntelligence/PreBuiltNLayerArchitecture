@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Unity" Version="5.11.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AML.Domain\SKF.Domain.csproj" />
+    <ProjectReference Include="..\AML.Infrastructure.Connections\SKF.Infrastructure.Connections.csproj" />
+    <ProjectReference Include="..\AML.Infrastructure.Data.EF\SKF.Infrastructure.Data.EF.csproj" />
+    <ProjectReference Include="..\AML.infrastructure.Data\SKF.infrastructure.Data.csproj" />
+    <ProjectReference Include="..\AML.Infrastructure.Readers\SKF.Infrastructure.Readers.csproj" />
+    <ProjectReference Include="..\AML.Infrastructure.Writers\SKF.Infrastructure.Writers.csproj" />
+    <ProjectReference Include="..\AML.Serialization\SKF.Serialization.csproj" />
+    <ProjectReference Include="..\SKF.Connections.ConnectedServices\SKF.Connections.ConnectedServices.csproj" />
+    <ProjectReference Include="..\SKF.Infrastructure.Mappers\SKF.Infrastructure.Mappers.csproj" />
+    <ProjectReference Include="..\SKF.Infrastructure.Validation\SKF.Infrastructure.Helpers.csproj" />
+  </ItemGroup>
+
+</Project>

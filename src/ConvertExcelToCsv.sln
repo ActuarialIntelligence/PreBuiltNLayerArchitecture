@@ -5,8 +5,6 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKF.Infrastructure.Readers", "AML.Infrastructure.Readers\SKF.Infrastructure.Readers.csproj", "{AF1418B1-FD07-47BD-A613-EBBB38D0EF68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKF.IOC", "AML.IOC\SKF.IOC.csproj", "{174E0CF6-D839-4893-A76F-6A91CCA2B86A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKF.infrastructure.Data", "AML.infrastructure.Data\SKF.infrastructure.Data.csproj", "{4A2CF174-007B-4528-BA54-0FEFE0B9A70A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKF.Infrastructure.Data.EF", "AML.Infrastructure.Data.EF\SKF.Infrastructure.Data.EF.csproj", "{6C967094-1968-4066-801F-8DDD1A2C1874}"
@@ -48,6 +46,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunPythonEXE", "RunPythonEX
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatGPTTestEXE", "ChatGPTTestEXE\ChatGPTTestEXE.csproj", "{6DB9C800-3762-4BED-8A24-56E8CCDA2073}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKF.IOCContainer", "SKF.IOCContainer\SKF.IOCContainer.csproj", "{6F2FDA97-7845-4DD8-8D29-5923899AE550}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,10 +58,6 @@ Global
 		{AF1418B1-FD07-47BD-A613-EBBB38D0EF68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF1418B1-FD07-47BD-A613-EBBB38D0EF68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF1418B1-FD07-47BD-A613-EBBB38D0EF68}.Release|Any CPU.Build.0 = Release|Any CPU
-		{174E0CF6-D839-4893-A76F-6A91CCA2B86A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{174E0CF6-D839-4893-A76F-6A91CCA2B86A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{174E0CF6-D839-4893-A76F-6A91CCA2B86A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{174E0CF6-D839-4893-A76F-6A91CCA2B86A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4A2CF174-007B-4528-BA54-0FEFE0B9A70A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4A2CF174-007B-4528-BA54-0FEFE0B9A70A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A2CF174-007B-4528-BA54-0FEFE0B9A70A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -112,6 +108,10 @@ Global
 		{6DB9C800-3762-4BED-8A24-56E8CCDA2073}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DB9C800-3762-4BED-8A24-56E8CCDA2073}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DB9C800-3762-4BED-8A24-56E8CCDA2073}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F2FDA97-7845-4DD8-8D29-5923899AE550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F2FDA97-7845-4DD8-8D29-5923899AE550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F2FDA97-7845-4DD8-8D29-5923899AE550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F2FDA97-7845-4DD8-8D29-5923899AE550}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
